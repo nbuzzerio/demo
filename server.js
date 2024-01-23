@@ -8,7 +8,7 @@ app.use(express.static('./dist'));
 
 // Define a catch-all route to serve 'index.html'
 app.get('*', (req, res) => {
-  res.sendFile(__dirname, './dist/index.html');
+  res.sendFile('./dist/index.html');
 });
 
 // Start the server
