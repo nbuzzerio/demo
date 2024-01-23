@@ -19,10 +19,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+      with:
+        path: /var/www/  # Specify the desired path
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm i
+    - run: |
+        cd /var/www/
+        npm i
     - run: npm run build --if-present
